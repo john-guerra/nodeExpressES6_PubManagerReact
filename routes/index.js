@@ -12,4 +12,12 @@ router.get("/publications", async function (req, res) {
   res.json(result);
 });
 
+//Implement the remaining CRUD routes here (Create, Read by ID, Update, Delete)
+router.post("/publications/create", async (req, res) => {
+  const newPub = req.body;
+  console.log("Create publication:", newPub);
+  await myDB.addPublication(newPub);
+  res.status(201).json({ message: "Publication created", publication: newPub });
+});
+
 export default router;

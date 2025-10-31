@@ -1,25 +1,4 @@
-import React, { useState, useEffect } from "react";
-
-export default function PublicationsList() {
-  const [publications, setPublications] = useState([]);
-
-  useEffect(() => {
-    const fetchPublications = () => {
-      fetch("/api/publications")
-        .then((res) => res.json())
-        .then((publicationsData) => {
-          // don't do this!
-          setPublications(publicationsData.data);
-          console.log("Fetched publications data:", publicationsData);
-        });
-    };
-
-    fetchPublications();
-
-    //clean up code
-    return () => {};
-  }, []);
-
+export default function PublicationsList({ publications }) {
   console.log("🎨 Rendering PublicationsList with publications:", publications);
 
   const renderPublications = () => {
