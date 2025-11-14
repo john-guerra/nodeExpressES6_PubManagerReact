@@ -13,6 +13,7 @@ export default function NavigationBar() {
           <Nav className="me-auto">
             <Nav.Link href="/">Publications</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/login">Login</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

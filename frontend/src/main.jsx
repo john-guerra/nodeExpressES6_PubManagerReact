@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 
 import IndexPage from "./pages/IndexPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
 import BaseTemplate from "./pages/BaseTemplate.jsx";
 
 createRoot(document.getElementById("root")).render(
@@ -16,6 +17,7 @@ createRoot(document.getElementById("root")).render(
         <Routes>
           <Route path="/" element={<IndexPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </BrowserRouter>
     </BaseTemplate>
