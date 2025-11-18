@@ -13,8 +13,14 @@ export default defineConfig({
   // Configure the development server to proxy API requests to the backend server
   server: {
     proxy: {
-      "/api": "http://localhost:3000", // Adjust the path as needed
-      // changeOrigin: true,
+      "/api": {
+        target: "http://localhost:3000", // Adjust the path as needed
+        changeOrigin: true,
+      },
+      "/auth": {
+        target: "http://localhost:3000", // Adjust the path as needed
+        changeOrigin: true,
+      },
       // rewrite: (path) => path.replace(/^\/api/, ""),
     },
   },

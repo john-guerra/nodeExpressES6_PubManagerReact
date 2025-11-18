@@ -1,5 +1,3 @@
-import BaseTemplate from "./BaseTemplate";
-
 export default function AboutPage() {
   return (
     <>

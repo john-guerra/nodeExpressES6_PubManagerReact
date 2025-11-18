@@ -3,12 +3,14 @@ import React, { useState, useEffect, useCallback } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-
 import PublicationsList from "../components/PublicationsList.jsx";
 import CreatePublicationForm from "../components/CreatePublicationForm.jsx";
 
+import { useUser } from "../context/UserContext.jsx";
+
 export default function IndexPage() {
   const [publications, setPublications] = useState([]);
+  const user = useUser();
 
   const fetchPublications = useCallback(() => {
     fetch("/api/publications")
@@ -34,8 +36,13 @@ export default function IndexPage() {
         <Col md={8} xs={12}>
           <PublicationsList publications={publications} />
         </Col>
+
         <Col md={4} xs={12}>
-          <CreatePublicationForm fetchPublications={fetchPublications} />
+          {user ? (
+            <CreatePublicationForm fetchPublications={fetchPublications} />
+          ) : (
+            <p>Please log in to create publications.</p>
+          )}
         </Col>
       </Row>
     </>
